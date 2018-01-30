@@ -1,0 +1,15 @@
+---
+- src: geerlingguy.apache
+- src: geerlingguy.composer
+- src: geerlingguy.git
+- src: geerlingguy.mailhog
+- src: geerlingguy.mysql
+- src: geerlingguy.phpmyadmin
+- src: geerlingguy.php
+- src: geerlingguy.php-mysql
+- src: geerlingguy.php-pecl
+- src: geerlingguy.php-xdebug
+- src: geerlingguy.postfix
+- src: geerlingguy.ruby
+- src: geerlingguy.firewall
+- src: geerlingguy.nodejs

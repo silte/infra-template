@@ -1,0 +1,126 @@
+---
+#
+# Default variables
+#
+# Use group specific group vars to overwrite these
+#
+
+#
+# MISC
+#
+
+installed_extras: []
+extra_packages:
+  - unzip
+project_cron_jobs: []
+
+#
+# APACHE
+#
+
+apache_listen_port: 80
+apache_mods_enabled:
+  - rewrite.load
+  - proxy.load
+  - proxy_fcgi.load
+
+
+
+#
+# MARIADB / MYSQL
+#
+
+# Packages
+mysql_packages:
+  - mariadb-client
+  - mariadb-server
+  - python-mysqldb
+# Misc
+mysql_bind_address: '127.0.0.1'
+# Slow query logging
+mysql_slow_query_log_enabled: yes
+mysql_slow_query_log_file: /var/log/mysql-slow.log
+mysql_slow_query_time: 2
+# Root password
+mysql_root_password: '{CHANGE-ME}'
+
+#Add databases
+#mysql_databases:
+#  - name: example_db
+#    encoding: utf8
+#    collation: utf8_general_ci
+
+#Add users
+#mysql_users:
+#  - name: testuser
+#    host: "%" # % = wildcard
+#    password: secret
+#    priv: "example_db.*:ALL" 
+
+#
+# PHP
+#
+
+php_version: "7.1"
+# Packages
+php_packages:
+  - php7.1
+  - libapache2-mod-php7.1
+  - php7.1-mcrypt
+  - php7.1-cli
+  - php7.1-common
+  - php7.1-curl
+  - php7.1-dev
+  - php7.1-fpm
+  - php7.1-gd
+  - php-pear
+  - libpcre3-dev
+# Conf
+php_conf_paths: "/etc/php/7.1/fpm"
+php_extension_conf_paths: "/etc/php/7.1/fpm/conf.d"
+php_fpm_conf_path: "/etc/php/7.0/fpm"
+php_fpm_daemon: php7.1-fpm
+
+# Misc
+php_enable_webserver: false
+php_expose_php: "On"
+php_memory_limit: "256M"
+php_max_execution_time: "60"
+php_max_input_time: "60"
+php_max_input_vars: "1000"
+php_realpath_cache_size: "32K"
+php_upload_max_filesize: "64M"
+php_post_max_size: "32M"
+php_date_timezone: "Europe/Helsinki"
+# Errors
+php_error_reporting: "E_ALL & ~E_DEPRECATED & ~E_STRICT"
+php_display_errors: "Off"
+php_display_startup_errors: "Off"
+# PHP-FPM
+php_enable_php_fpm: true
+php_fpm_pm_max_requests: 1000
+# Opcache
+php_opcache_enabled_in_ini: true
+php_opcache_enable: "1"
+php_opcache_enable_cli: "0"
+php_opcache_memory_consumption: "96"
+php_opcache_interned_strings_buffer: "16"
+php_opcache_max_accelerated_files: "4096"
+php_opcache_max_wasted_percentage: "5"
+php_opcache_validate_timestamps: "1"
+php_opcache_revalidate_freq: "2"
+php_opcache_max_file_size: "0"
+
+#
+# FIREWALL
+#
+
+# Ports that are open for everyone.
+firewall_allowed_tcp_ports:
+  - "80"
+  - "443"
+  - "22"
+
+# Open up SSH connections for certain ip addresses
+firewall_additional_rules:
+#    - 'iptables -A INPUT -p tcp -m tcp --dport 22 -s x.x.x.x -j ACCEPT'

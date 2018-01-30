@@ -1,0 +1,35 @@
+---
+#
+# MISC
+#
+
+ansible_ssh_user: root
+installed_extras:
+  - iptables
+
+#
+# APACHE
+#
+
+# Configure multisites add following lines after apache_vhost:
+# documentroot is /vagrant/{YOUR-FOLDER-NAME-UNDER-SITES}
+#
+#  - servername: "domain.dev"
+#    serveralias: "domain.dev other-domain-for-this-site.dev"
+#    documentroot: "/vagrant/{YOUR-FOLDER-NAME-UNDER-SITES}"
+
+apache_vhosts:
+  - servername: "local.dev"
+    serveralias: "local.dev"
+    documentroot: "/vagrant/local.dev"
+
+
+#
+# PHP
+#
+
+# PHP-FPM
+php_fpm_pm_max_children: 32
+php_fpm_pm_start_servers: 4
+php_fpm_pm_min_spare_servers: 2
+php_fpm_pm_max_spare_servers: 8
