@@ -15,9 +15,9 @@
     - geerlingguy.php
     - geerlingguy.php-pecl
     - geerlingguy.php-mysql
-    - geerlingguy.phpmyadmin
     - geerlingguy.composer
     # Conditional roles
+    - { role: geerlingguy.phpmyadmin, when: '"phpmyadmin" in installed_extras' }
     - { role: geerlingguy.php-xdebug, when: '"xdebug" in installed_extras' }
     - { role: geerlingguy.daemonize, when: '"mailhog" in installed_extras' }
     - { role: geerlingguy.mailhog, when: '"mailhog" in installed_extras' }
