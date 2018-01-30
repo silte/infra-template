@@ -12,14 +12,31 @@
 
 ## To start virtual machine first time ##
 
- 1.  ``` cd THISREPO ```
+ 1. ``` cd THISREPO ```
 
- 2. ``` ansible-galaxy install -r ansible/requirements.yml -p ansible/roles ```
+ 2. ``` grep -r "{CHANGE-ME}" * ``` and change these settings
 
- 3. ``` vagrant up ```
+ 3. ``` ansible-galaxy install -r ansible/requirements.yml -p ansible/roles ```
+
+ 4. ``` vagrant up ```
 
 
+## Configure production server ##
+  * YOU NEED SSH ACCESS TO SERVER AS ROOT
 
+** Provisio all settings **
+
+* ``` ansible-playbook -i ansible/inventory/production ansible/provision.yml ```
+  
+  
+** Provision (and edit) only host changes **
+
+ * edit ansible/group_vars/production.yml (there are more instructions)
+
+ * ``` ansible-playbook -i ansible/inventory/production ansible/provision-apache.yml ```
+ 
+ 
+ 
 
 ## HOST CONFIGURATION ##
 
@@ -37,10 +54,10 @@
 
  * If only adding a new host name
 
- * run ``` ansible-playbook -i ansible/inventory/development ansible/provision-apache.yml ```
+ * ``` ansible-playbook -i ansible/inventory/development ansible/provision-apache.yml ```
 
 
-**Virtual domain configuration**
+**Virtual domain configuration (local server)**
 
  * open "sudo nano /etc/hosts"
 
