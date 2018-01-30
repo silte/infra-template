@@ -24,12 +24,12 @@
 ## Configure production server ##
   * YOU NEED SSH ACCESS TO SERVER AS ROOT
 
-** Provisio all settings **
+**Provisio all settings**
 
 * ``` ansible-playbook -i ansible/inventory/production ansible/provision.yml ```
   
   
-** Provision (and edit) only host changes **
+**Provision (and edit) only host changes**
 
  * edit ansible/group_vars/production.yml (there are more instructions)
 
