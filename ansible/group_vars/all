@@ -22,6 +22,7 @@ apache_listen_port: 80
 apache_listen_port_ssl: 443
 apache_mods_enabled:
   - rewrite.load
+  - ssl.load
   - proxy.load
   - proxy_fcgi.load
 
@@ -45,7 +46,7 @@ catalina_opts:
   - -Xmx256m
 tomcat_users:
   - name: admin
-    password: {CHANGE-ME}
+    password: not-so-public
     roles: manager-gui
 
 #
@@ -64,7 +65,7 @@ mysql_slow_query_log_enabled: yes
 mysql_slow_query_log_file: /var/log/mysql-slow.log
 mysql_slow_query_time: 2
 # Root password
-mysql_root_password: '{CHANGE-ME}'
+mysql_root_password: 'tietokanta#SALAINEN'
 
 #Add databases
 #mysql_databases:
@@ -162,5 +163,6 @@ firewall_allowed_tcp_ports:
 #
 
 certbot_create_standalone_stop_services:
-  - apache
-certbot_admin_email: {CHANGE-ME}
+  - apache2
+certbot_create_if_missing: true
+certbot_admin_email: teemu.sillantaus@gmail.com

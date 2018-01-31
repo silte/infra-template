@@ -15,23 +15,48 @@ installed_extras:
 
 # Configure multisites add following lines after apache_vhost:
 #
-#  - servername: "domain.dev"
+#  - servername: "site.domain"
 #    documentroot: "{YOUR-SITE-WEB-ROOT-PATH}"
 #
 #
 # Or you can use other web host on server, e.g. tomcat or nodejs on port 8080
 #
-#  - servername: "tomcatapp.domain.dev"
+#  - servername: "tomcatapp.site.domain"
 #      extra_parameters: |
 #        ProxyPreserveHost On
 #        ProxyPass / "http://127.0.0.1:8080/{TOMCAT-APP-PATH}"
 #        ProxyPassReverse / "http://127.0.0.1:8080/{TOMCAT-APP-PATH}"
 #
+#
+# TO USE HTTPS YOU HAVE TO CHANGE "apache_vhosts" TO "apache_vhosts_ssl"
+#
+# apache_vhosts_ssl:
+# - servername: "{site.domain}",
+#   documentroot: "/PATH/TO/SITE/WEB/ROOT",
+#   certificate_file: "/etc/letsencrypt/live/{site.domain}/fullchain.pem",
+#   certificate_key_file: "/etc/letsencrypt/live/{site.domain}/privkey.pem",
+#   certificate_chain_file: "/etc/letsencrypt/live/{dsite.domain}/chain.pem"
+#
+#
+# ADD CODE BELOW TO REDIRECT HTTP// -> HTTPS://
+# list all domain you want to redirect in serveralias 
+# ("*.*" is wildcard for redirecting all http request to https)
+#
+# apache_vhosts:
+#   - servername: "{site.domain}"
+#     serveralias: "{list of all domains to redirect}"
+#     extra_parameters: |
+#       RewriteEngine on
+#       RewriteRule ^ https://%{SERVER_NAME}%{REQUEST_URI} [END,QSA,R=permanent]
+#
+
 
 apache_vhosts:
   - servername: "site.domain"
     serveralias: "www.site.domain site.domain"
     documentroot: "/PATH/TO/SITE/WEB/ROOT"
+
+
 
 
 #
@@ -49,8 +74,8 @@ php_fpm_pm_max_spare_servers: 8
 #
 
 #certbot_certs:
-  # - domains:
-  #     - example1.com
-  #     - example2.com
-  # - domains:
-  #     - example3.com
+#   - domains:
+#       - example1.com
+#       - www.example1.com
+#   - domains:
+#       - example2.com
