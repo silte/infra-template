@@ -1,6 +1,7 @@
 ---
 - src: geerlingguy.apache
 - src: geerlingguy.composer
+- src: geerlingguy.certbot
 - src: geerlingguy.firewall
 - src: geerlingguy.git
 - src: geerlingguy.java

@@ -6,6 +6,8 @@
 ansible_ssh_user: "root"
 installed_extras:
   - iptables
+#  - autossl
+# {CHANGE-ME} uncomment line above and change config bottom of this file to auto generate and renew ssl
 
 #
 # APACHE
@@ -27,9 +29,9 @@ installed_extras:
 #
 
 apache_vhosts:
-  - servername: "local.dev"
-    serveralias: "local.dev"
-    documentroot: "/vagrant/local.dev"
+  - servername: "site.domain"
+    serveralias: "www.site.domain site.domain"
+    documentroot: "/PATH/TO/SITE/WEB/ROOT"
 
 
 #
@@ -41,3 +43,14 @@ php_fpm_pm_max_children: 32
 php_fpm_pm_start_servers: 4
 php_fpm_pm_min_spare_servers: 2
 php_fpm_pm_max_spare_servers: 8
+
+#
+# AUTOSSL CERTBOT
+#
+
+#certbot_certs:
+  # - domains:
+  #     - example1.com
+  #     - example2.com
+  # - domains:
+  #     - example3.com

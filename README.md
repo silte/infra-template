@@ -69,6 +69,7 @@
  
  * [geerlingguy/ansible-role-apache](https://github.com/geerlingguy/ansible-role-apache)
  * [geerlingguy/ansible-role-composer](https://github.com/geerlingguy/ansible-role-composer)
+ * [geerlingguy/ansible-role-certbot](https://github.com/geerlingguy/ansible-role-certbot)
  * [geerlingguy/ansible-role-firewall](https://github.com/geerlingguy/ansible-role-firewall)
  * [geerlingguy/ansible-role-java](https://github.com/geerlingguy/ansible-role-java)
  * [geerlingguy/ansible-role-mailhog](https://github.com/geerlingguy/ansible-role-mailhog)

@@ -154,3 +154,13 @@ firewall_allowed_tcp_ports:
 # Open up SSH connections for certain ip addresses
 #firewall_additional_rules:
 #    - 'iptables -A INPUT -p tcp -m tcp --dport 22 -s x.x.x.x -j ACCEPT'
+
+
+
+#
+# AUTOSSL CERTBOT
+#
+
+certbot_create_standalone_stop_services:
+  - apache
+certbot_admin_email: {CHANGE-ME}
