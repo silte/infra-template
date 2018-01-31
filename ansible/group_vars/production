@@ -71,6 +71,7 @@ php_fpm_pm_max_spare_servers: 8
 
 #
 # AUTOSSL CERTBOT
+# use server name as first domain name of list
 #
 
 #certbot_certs:
@@ -78,4 +79,4 @@ php_fpm_pm_max_spare_servers: 8
 #       - example1.com
 #       - www.example1.com
 #   - domains:
-#       - example2.com
+#       - sub.example2.com
