@@ -1,6 +1,6 @@
 ---
 - hosts: all
-  sudo: yes
+  become: yes
   pre_tasks:
     - name: Update apt cache if needed.
       apt: update_cache=yes cache_valid_time=86400
@@ -23,4 +23,6 @@
     - { role: geerlingguy.mailhog, when: '"mailhog" in installed_extras' }
     - { role: geerlingguy.nodejs, when: '"nodejs" in installed_extras' }
     - { role: geerlingguy.ruby, when: '"ruby" in installed_extras' }
+    - { role: geerlingguy.java, when: '"tomcat" in installed_extras' }
+    - { role: idealista.tomcat, when: '"tomcat" in installed_extras' }
     - { role: geerlingguy.firewall, when: '"iptables" in installed_extras' }

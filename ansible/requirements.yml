@@ -3,6 +3,7 @@
 - src: geerlingguy.composer
 - src: geerlingguy.firewall
 - src: geerlingguy.git
+- src: geerlingguy.java
 - src: geerlingguy.mailhog
 - src: geerlingguy.mysql
 - src: geerlingguy.nodejs
@@ -13,3 +14,7 @@
 - src: geerlingguy.phpmyadmin
 - src: geerlingguy.postfix
 - src: geerlingguy.ruby
+- src: http://github.com/idealista/tomcat-role.git
+  scm: git
+  version: 1.0.0
+  name: idealista.tomcat

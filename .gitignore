@@ -1,6 +1,6 @@
 ansible/group_vars/development
 ansible/roles/*
-!ansible/roles/phpmyadminNopassword
 .vagrant
 sites/*
 !sites/example
+*.retry

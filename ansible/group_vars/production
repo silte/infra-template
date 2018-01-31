@@ -3,7 +3,7 @@
 # MISC
 #
 
-ansible_ssh_user: root
+ansible_ssh_user: "root"
 installed_extras:
   - iptables
 
@@ -12,11 +12,19 @@ installed_extras:
 #
 
 # Configure multisites add following lines after apache_vhost:
-# documentroot is /vagrant/{YOUR-FOLDER-NAME-UNDER-SITES}
 #
 #  - servername: "domain.dev"
-#    serveralias: "domain.dev other-domain-for-this-site.dev"
-#    documentroot: "/vagrant/{YOUR-FOLDER-NAME-UNDER-SITES}"
+#    documentroot: "{YOUR-SITE-WEB-ROOT-PATH}"
+#
+#
+# Or you can use other web host on server, e.g. tomcat or nodejs on port 8080
+#
+#  - servername: "tomcatapp.domain.dev"
+#      extra_parameters: |
+#        ProxyPreserveHost On
+#        ProxyPass / "http://127.0.0.1:8080/{TOMCAT-APP-PATH}"
+#        ProxyPassReverse / "http://127.0.0.1:8080/{TOMCAT-APP-PATH}"
+#
 
 apache_vhosts:
   - servername: "local.dev"
