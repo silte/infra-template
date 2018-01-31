@@ -1,7 +1,7 @@
 ---
 - src: https://github.com/silte/ansible-role-apache.git
   scm: git
-  version: 2.1.1
+  version: master
   name: geerlingguy.apache
 - src: geerlingguy.composer
 - src: geerlingguy.certbot
