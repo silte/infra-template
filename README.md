@@ -1,71 +1,87 @@
-## BEFORE START YOU NEED ##
+# Infra template
+
+### Requirements
  * Vagrant (https://www.vagrantup.com/downloads.html)
  * Virtualbox (https://www.virtualbox.org/wiki/Downloads)
  * Ansible (http://docs.ansible.com/ansible/latest/intro_installation.html)
 
+### Setup
 
+**Start VM for the first time**
 
+```
+$ git clone git@github.com:silte/infra-template.git folder-name
+$ cd THISREPO
+```
 
+**Change every 'CHANGE-ME' found**
 
+```
+$ grep -r "{CHANGE-ME}" * 
+```
 
+**After changing everything**
 
+```
+$ ansible-galaxy install -r ansible/requirements.yml -p ansible/roles
+$ vagrant up
+```
 
-## To start virtual machine first time ##
+### Configure production server
 
- 1. ``` cd THISREPO ```
+**Requirements**
+ * SSH Access to server as ROOT
 
- 2. ``` grep -r "{CHANGE-ME}" * ``` and change these settings
+**Provision all settings**
 
- 3. ``` ansible-galaxy install -r ansible/requirements.yml -p ansible/roles ```
-
- 4. ``` vagrant up ```
-
-
-## Configure production server ##
-  * YOU NEED SSH ACCESS TO SERVER AS ROOT
-
-**Provisio all settings**
-
-* ``` ansible-playbook -i ansible/inventory/production ansible/provision.yml ```
+```
+$ ansible-playbook -i ansible/inventory/production ansible/provision.yml
+```
   
-  
-**Provision (and edit) only host changes**
+**Provision host changes**
 
- * edit ansible/group_vars/production.yml (there are more instructions)
+ * Go to ``` ansible/group_vars/production.yml ```
+ * Follow the instructions
 
- * ``` ansible-playbook -i ansible/inventory/production ansible/provision-apache.yml ```
- 
- 
- 
+After you've changed your host settings
 
-## HOST CONFIGURATION ##
+``` 
+$ ansible-playbook -i ansible/inventory/production ansible/provision-apache.yml
+```
+ 
+### HOST Configuration
 
 
 **Add new sites**
 
- * site folder in sites
+ * Create a folder for your site in ``` sites/ ```
+ * Go to ``` ansible/group_vars/development.yml ```
+ * Follow the instructions
 
- * edit ansible/group_vars/development.yml (there are more instructions)
+After following the instructions
 
- * ``` vagrant provision ```
+```
+$ vagrant provision
+```
+
+**Adding only a new host name**
+
+```
+$ ansible-playbook -i ansible/inventory/development ansible/provision-apache.yml
+```
 
 
- **Adding only a new host name**
+**Virtual domain configuration**
 
- * If only adding a new host name
+```
+$ sudo nano /etc/hosts
+```
 
- * ``` ansible-playbook -i ansible/inventory/development ansible/provision-apache.yml ```
-
-
-**Virtual domain configuration (local server)**
-
- * open "sudo nano /etc/hosts"
-
- * add ``` 192.168.55.12  local.dev ```
-
- * open "local.dev" in browser
+* Add ``` 192.168.55.12 local.dev ```
+* Open ``` local.dev ``` in your browser
  
-## Used roles ##
+
+### Used roles
  
  * [geerlingguy/ansible-role-apache](https://github.com/geerlingguy/ansible-role-apache)
  * [geerlingguy/ansible-role-composer](https://github.com/geerlingguy/ansible-role-composer)
