@@ -1,5 +1,3 @@
-kakka
-
 # Infra template
 
 ### Requirements
