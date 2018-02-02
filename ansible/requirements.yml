@@ -3,8 +3,9 @@
   scm: git
   version: master
   name: geerlingguy.apache
-- src: geerlingguy.composer
 - src: geerlingguy.certbot
+- src: geerlingguy.composer
+- src: geerlingguy.drush
 - src: geerlingguy.firewall
 - src: geerlingguy.git
 - src: geerlingguy.java

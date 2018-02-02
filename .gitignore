@@ -1,4 +1,3 @@
-ansible/group_vars/development
 ansible/roles/*
 .vagrant
 sites/*

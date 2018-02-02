@@ -28,6 +28,16 @@ apache_mods_enabled:
 
 
 #
+# DRUSH
+#
+
+drush_launcher_install: yes
+drush_launcher_version: "0.5.1"
+drush_composer_global_install: no
+
+
+
+#
 # JAVA
 #
 

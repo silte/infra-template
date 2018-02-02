@@ -1,0 +1,51 @@
+---
+#
+# MISC
+#
+
+ansible_ssh_private_key_file: ~/.vagrant.d/insecure_private_key
+ansible_ssh_user: vagrant
+installed_extras:
+  - mailhog
+  - nodejs
+  - phpmyadmin
+
+#
+# APACHE
+#
+
+
+# Configure multisites add following lines after apache_vhost:
+# documentroot is /vagrant/{YOUR-FOLDER-NAME-UNDER-SITES}
+#
+#  - servername: "domain.local"
+#    serveralias: "domain.local other-domain-for-this-site.dev"
+#    documentroot: "/vagrant/{YOUR-FOLDER-NAME-UNDER-SITES}"
+#
+#
+# Or you can use other web server on the server, e.g. tomcat on port 8080
+#
+#  - servername: "tomcatapp.domain.local"
+#      extra_parameters: |
+#        ProxyPreserveHost On
+#        ProxyPass / "http://127.0.0.1:8080/{TOMCAT-APP-PATH}"
+#        ProxyPassReverse / "http://127.0.0.1:8080/{TOMCAT-APP-PATH}"
+#
+
+apache_vhosts:
+  - servername: "local.local"
+    documentroot: "/vagrant/example"
+
+
+#
+# PHP
+#
+
+# Errors
+php_display_errors: "On"
+php_display_startup_errors: "On"
+# OpCache
+php_opcache_enabled_in_ini: false
+php_opcache_enable: "0"
+# Catch emails
+php_sendmail_path: "/usr/sbin/ssmtp -t"

@@ -77,15 +77,16 @@ $ ansible-playbook -i ansible/inventory/development ansible/provision-apache.yml
 $ sudo nano /etc/hosts
 ```
 
-* Add ``` 192.168.55.12 local.dev ```
-* Open ``` local.dev ``` in your browser
+* Add ``` 192.168.55.12 local.local ```
+* Open ``` local.local ``` in your browser
  
 
 ### Used roles
  
- * [geerlingguy/ansible-role-apache](https://github.com/geerlingguy/ansible-role-apache)
- * [geerlingguy/ansible-role-composer](https://github.com/geerlingguy/ansible-role-composer)
+ * [geerlingguy/ansible-role-apache](https://github.com/silte/ansible-role-apache)
  * [geerlingguy/ansible-role-certbot](https://github.com/geerlingguy/ansible-role-certbot)
+ * [geerlingguy/ansible-role-composer](https://github.com/geerlingguy/ansible-role-composer)
+ * [geerlingguy/ansible-role-drush](https://github.com/geerlingguy/ansible-role-drush)
  * [geerlingguy/ansible-role-firewall](https://github.com/geerlingguy/ansible-role-firewall)
  * [geerlingguy/ansible-role-java](https://github.com/geerlingguy/ansible-role-java)
  * [geerlingguy/ansible-role-mailhog](https://github.com/geerlingguy/ansible-role-mailhog)
