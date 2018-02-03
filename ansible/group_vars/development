@@ -10,6 +10,28 @@ installed_extras:
   - nodejs
   - phpmyadmin
 
+
+#
+# DEPLOY SETTINGS
+#
+
+# project:
+#   example_project:
+#     path: "/path/to/project/root"
+#     repo: 
+#       url: {PROJECT-GIT-REPO-URL}
+#       version: {BRANCH-OR-COMMIT-TO-DEPLOY} # optional, default master
+#     shell:
+#       - "shell command" # run with default path (project root path)
+#       - cmd: "shell command with other path" # run with custom path
+#         path: "/path/for/command" 
+#   other_project:
+#     ...
+#
+
+
+
+
 #
 # APACHE
 #

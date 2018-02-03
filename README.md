@@ -49,6 +49,17 @@ After you've changed your host settings
 $ ansible-playbook -i ansible/inventory/production ansible/provision-apache.yml
 ```
  
+**Deploy project**
+
+ * Go to ``` ansible/group_vars/production.yml ```
+ * Follow the instructions
+
+After you've changed project settings
+
+``` 
+$ ansible-playbook -i ansible/inventory/production ansible/deploy.yml --extra-vars "deploy={{project.YOUR-PROJECT-NAME}
+```
+
 ### HOST Configuration
 
 

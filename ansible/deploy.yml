@@ -1,0 +1,9 @@
+- name: Deploy project to targeted environment
+  hosts: all
+  tasks:
+    - name: Update project repo
+      git: repo={{ deploy.repo.url }} dest={{ deploy.path }} version={{ deploy.repo.version | default('master') }} accept_hostkey=true
+
+    - name: Run shell commands
+      shell: "{{ item.cmd | default(item) }} chdir={{ item.path | default(deploy.path) }}"
+      with_items: "{{ deploy.shell }}"
